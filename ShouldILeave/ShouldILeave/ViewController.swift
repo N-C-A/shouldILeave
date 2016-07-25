@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
 
+    var datasource:SILArrivalsContext? = nil
+    
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +23,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func setupDatasource() {
+        datasource = SILArrivalsContext()
+        
+        tableView?.dataSource = datasource
+        tableView?.delegate = self
+    }
+    
+    
 
 }
 
