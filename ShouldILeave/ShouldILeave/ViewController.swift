@@ -17,6 +17,9 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "TrainCell")
+        
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         tableView?.dataSource = datasource
         tableView?.delegate = self
+        
+        
     }
     
     
