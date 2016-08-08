@@ -10,7 +10,6 @@
 		B3151CB01D34132600BA1859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CAF1D34132600BA1859 /* AppDelegate.swift */; };
 		B3151CB21D34132600BA1859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CB11D34132600BA1859 /* ViewController.swift */; };
 		B3151CB51D34132600BA1859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3151CB31D34132600BA1859 /* Main.storyboard */; };
-		B3151CB81D34132600BA1859 /* ShouldILeave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3151CB61D34132600BA1859 /* ShouldILeave.xcdatamodeld */; };
 		B3151CBA1D34132600BA1859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3151CB91D34132600BA1859 /* Assets.xcassets */; };
 		B3151CBD1D34132600BA1859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3151CBB1D34132600BA1859 /* LaunchScreen.storyboard */; };
 		B3151CC81D34132600BA1859 /* ShouldILeaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CC71D34132600BA1859 /* ShouldILeaveTests.swift */; };
@@ -19,6 +18,9 @@
 		B38B402B1D341E4D00166FD9 /* SILTrainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B402A1D341E4D00166FD9 /* SILTrainRequest.swift */; };
 		B38B402C1D341E4D00166FD9 /* SILTrainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B402A1D341E4D00166FD9 /* SILTrainRequest.swift */; };
 		B38B402D1D341E4D00166FD9 /* SILTrainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B402A1D341E4D00166FD9 /* SILTrainRequest.swift */; };
+		B3E637D51D58FD8A0068109A /* TrainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E637D41D58FD8A0068109A /* TrainController.swift */; };
+		B3E637D71D58FDD70068109A /* TrainParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E637D61D58FDD70068109A /* TrainParser.swift */; };
+		B3E637DC1D58FF800068109A /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E637DA1D58FF800068109A /* Train.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,6 @@
 		B3151CAF1D34132600BA1859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3151CB11D34132600BA1859 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B3151CB41D34132600BA1859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B3151CB71D34132600BA1859 /* ShouldILeave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShouldILeave.xcdatamodel; sourceTree = "<group>"; };
 		B3151CB91D34132600BA1859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3151CBC1D34132600BA1859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3151CBE1D34132600BA1859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +56,9 @@
 		B3151CD41D34132600BA1859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3858FDF1D469586008FE25F /* SILArrivalsContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SILArrivalsContext.swift; sourceTree = "<group>"; };
 		B38B402A1D341E4D00166FD9 /* SILTrainRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SILTrainRequest.swift; sourceTree = "<group>"; };
+		B3E637D41D58FD8A0068109A /* TrainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainController.swift; sourceTree = "<group>"; };
+		B3E637D61D58FDD70068109A /* TrainParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainParser.swift; sourceTree = "<group>"; };
+		B3E637DA1D58FF800068109A /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +116,6 @@
 				B3151CB91D34132600BA1859 /* Assets.xcassets */,
 				B3151CBB1D34132600BA1859 /* LaunchScreen.storyboard */,
 				B3151CBE1D34132600BA1859 /* Info.plist */,
-				B3151CB61D34132600BA1859 /* ShouldILeave.xcdatamodeld */,
 			);
 			path = ShouldILeave;
 			sourceTree = "<group>";
@@ -146,10 +149,29 @@
 		B38B40291D341E2000166FD9 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				B3E637D81D58FE9E0068109A /* ManagedObjects */,
+				B3E637D31D58FD5C0068109A /* Controllers */,
 				B38B40281D341D9E00166FD9 /* Network */,
 				B3858FDF1D469586008FE25F /* SILArrivalsContext.swift */,
 			);
 			path = Code;
+			sourceTree = "<group>";
+		};
+		B3E637D31D58FD5C0068109A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3E637D41D58FD8A0068109A /* TrainController.swift */,
+				B3E637D61D58FDD70068109A /* TrainParser.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3E637D81D58FE9E0068109A /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				B3E637DA1D58FF800068109A /* Train.swift */,
+			);
+			name = ManagedObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,10 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E637D51D58FD8A0068109A /* TrainController.swift in Sources */,
 				B38B402B1D341E4D00166FD9 /* SILTrainRequest.swift in Sources */,
-				B3151CB81D34132600BA1859 /* ShouldILeave.xcdatamodeld in Sources */,
+				B3E637D71D58FDD70068109A /* TrainParser.swift in Sources */,
 				B3151CB21D34132600BA1859 /* ViewController.swift in Sources */,
 				B3151CB01D34132600BA1859 /* AppDelegate.swift in Sources */,
+				B3E637DC1D58FF800068109A /* Train.swift in Sources */,
 				B3858FE01D469586008FE25F /* SILArrivalsContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,19 +568,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B3151CB61D34132600BA1859 /* ShouldILeave.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B3151CB71D34132600BA1859 /* ShouldILeave.xcdatamodel */,
-			);
-			currentVersion = B3151CB71D34132600BA1859 /* ShouldILeave.xcdatamodel */;
-			path = ShouldILeave.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B3151CA41D34132600BA1859 /* Project object */;
 }
