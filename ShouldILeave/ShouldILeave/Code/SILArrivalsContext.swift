@@ -8,15 +8,22 @@
 
 import UIKit
 
-@objc class SILArrivalsContext:NSObject, UITableViewDataSource {
+class SILArrivalsContext:NSObject, UITableViewDataSource {
     
-    var strings:Array<String> = []
+    var trains: [Train] = []
+    
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let identifier = "TrainCell"
+        let cell =
+            tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+        
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return strings.count
+        return trains.count
     }
 }

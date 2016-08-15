@@ -13,7 +13,12 @@ enum RequestResult{
     case Success([Train])
     case Failure
 }
-
+class TrainParser {
+private static let dateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-ddHH:mm:ss"
+    return formatter
+}()
 
 func fetchUpcomingTrains(data: NSData?) -> RequestResult {
     guard let jsonData = data else {
@@ -24,8 +29,7 @@ func fetchUpcomingTrains(data: NSData?) -> RequestResult {
         let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
         
         guard let
-            jsonDictionary = jsonObject as? [NSObject],
-            trainsArray = jsonDictionary[0] as? [[String:AnyObject]] else {
+            trainsArray = jsonObject as? [[String:AnyObject]] else {
                 
                 return .Failure
         }
@@ -63,4 +67,5 @@ func trainsFromJSON(json: [String: AnyObject]) -> Train? {
     }
     
     return Train(destinationStation: destinationStation, direction: direction, expectedArrival: expectedArrival, lineID: lineID, timestamp: timestamp,trainID: trainID)
+}
 }
