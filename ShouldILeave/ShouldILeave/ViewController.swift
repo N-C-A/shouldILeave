@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         let url = NSURL(string: "https://api.tfl.gov.uk/Line/central/Arrivals/940GZZLUBND?direction=inbound&app_id=3aee5ec5&app_key=6f62b916e190dfc33d248160d3cbbd0e")
         
         SILRequest.sendRequest(url: url!) { (response) in
-            let trainsResults = fetchUpcomingTrains(response)
+            let trainsResults = TrainParser.fetchUpcomingTrains(response)
             
             NSOperationQueue.mainQueue().addOperationWithBlock() {
                 switch trainsResults {

@@ -18,8 +18,15 @@ class SILArrivalsContext:NSObject, UITableViewDataSource {
         let identifier = "TrainCell"
         let cell =
             tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+        let train = trains[indexPath.row]
         
         
+        let currentCalendar = NSCalendar.currentCalendar()
+
+        let dateComponents = currentCalendar.components(.Minute, fromDate: train.timestamp, toDate: train.expectedArrival, options: NSCalendarOptions.WrapComponents)
+        
+        
+        cell.textLabel?.text = "\(dateComponents.minute) mins"
         return cell
     }
     

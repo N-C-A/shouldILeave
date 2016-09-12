@@ -14,58 +14,68 @@ enum RequestResult{
     case Failure
 }
 class TrainParser {
-private static let dateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.dateFormat = "yyyy-MM-ddHH:mm:ss"
-    return formatter
-}()
-
-func fetchUpcomingTrains(data: NSData?) -> RequestResult {
-    guard let jsonData = data else {
-        return .Failure
-    }
+     private static let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.lenient = true
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        return formatter
+    }()
+    private static let dateFormatter2: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.lenient = true
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:SSSS.SSSS'Z'"
+        return formatter
+    }()
     
-    do {
-        let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
-        
-        guard let
-            trainsArray = jsonObject as? [[String:AnyObject]] else {
-                
-                return .Failure
-        }
-        
-        var finalTrains = [Train]()
-        
-        for trainJSON in trainsArray {
-            if let train = trainsFromJSON(trainJSON) {
-                finalTrains.append(train)
-            }
-        }
-        
-        if finalTrains.isEmpty && !trainsArray.isEmpty {
-            
+    
+    class func fetchUpcomingTrains(data: NSData?) -> RequestResult {
+        guard let jsonData = data else {
             return .Failure
         }
-        return .Success(finalTrains)
-    }
-    catch _  {
-        return .Failure
+        
+        do {
+            let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
+            
+            guard let
+                trainsArray = jsonObject as? [[String:AnyObject]] else {
+                    
+                    return .Failure
+            }
+            
+            var finalTrains = [Train]()
+            
+            for trainJSON in trainsArray {
+                if let train = trainsFromJSON(trainJSON) {
+                    finalTrains.append(train)
+                }
+            }
+            
+            if finalTrains.isEmpty && !trainsArray.isEmpty {
+                
+                return .Failure
+            }
+            return .Success(finalTrains)
+        }
+        catch _  {
+            return .Failure
+        }
+        
     }
     
-}
-
-func trainsFromJSON(json: [String: AnyObject]) -> Train? {
-    
-    guard let destinationStation  = json["stationName"] as? String,
-    direction = json["direction"] as? String,
-    expectedArrival = json["expectedArrival"] as? NSDate,
-    lineID = json["lineId"] as? String,
-    timestamp = json["timestamp"] as? NSDate,
-    trainID  = json["id"] as? String
-    else {
-        return nil
+    class func trainsFromJSON(json: [String: AnyObject]) -> Train? {
+        
+        guard let destinationStation  = json["stationName"] as? String,
+            direction = json["direction"] as? String,
+            expectedArrivalString = json["expectedArrival"] as? String,
+            lineID = json["lineId"] as? String,
+            timestampString = json["timestamp"] as? String,
+            trainID  = json["id"] as? String,
+            expectedArrival = dateFormatter2.dateFromString(expectedArrivalString),
+            timestamp = dateFormatter.dateFromString(timestampString)
+            else {
+                return nil
+        }
+        
+        return Train(destinationStation: destinationStation, direction: direction, expectedArrival: expectedArrival, lineID: lineID, timestamp: timestamp,trainID: trainID)
     }
-    
-    return Train(destinationStation: destinationStation, direction: direction, expectedArrival: expectedArrival, lineID: lineID, timestamp: timestamp,trainID: trainID)
-}
 }
