@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "TrainCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TrainCell")
         tableView?.dataSource = datasource
         tableView?.delegate = self
         loadData()
@@ -25,17 +25,17 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func loadData() {
         
-        let url = NSURL(string: "https://api.tfl.gov.uk/Line/central/Arrivals/940GZZLUBND?direction=inbound&app_id=3aee5ec5&app_key=6f62b916e190dfc33d248160d3cbbd0e")
+        let url = URL(string: "https://api.tfl.gov.uk/Line/central/Arrivals/940GZZLUBND?direction=inbound&app_id=3aee5ec5&app_key=6f62b916e190dfc33d248160d3cbbd0e")
         
         SILRequest.sendRequest(url: url!) { (response) in
             let trainsResults = TrainParser.fetchUpcomingTrains(response)
             
-            NSOperationQueue.mainQueue().addOperationWithBlock() {
+            OperationQueue.main.addOperation() {
                 switch trainsResults {
-                case let .Success(trains):
+                case let .success(trains):
                     print("\(trains)")
                     self.datasource.trains = trains
-                case .Failure():
+                case .failure():
                     self.datasource.trains.removeAll()
                     print("")
                 }

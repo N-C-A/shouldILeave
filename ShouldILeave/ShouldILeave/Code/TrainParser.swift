@@ -10,36 +10,36 @@ import Foundation
 import CoreData
 
 enum RequestResult{
-    case Success([Train])
-    case Failure
+    case success([Train])
+    case failure
 }
 class TrainParser {
-     private static let dateFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.lenient = true
+     fileprivate static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.isLenient = true
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         return formatter
     }()
-    private static let dateFormatter2: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.lenient = true
+    fileprivate static let dateFormatter2: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.isLenient = true
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:SSSS.SSSS'Z'"
         return formatter
     }()
     
     
-    class func fetchUpcomingTrains(data: NSData?) -> RequestResult {
+    class func fetchUpcomingTrains(_ data: Data?) -> RequestResult {
         guard let jsonData = data else {
-            return .Failure
+            return .failure
         }
         
         do {
-            let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
+            let jsonObject: AnyObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
             
             guard let
                 trainsArray = jsonObject as? [[String:AnyObject]] else {
                     
-                    return .Failure
+                    return .failure
             }
             
             var finalTrains = [Train]()
@@ -52,26 +52,26 @@ class TrainParser {
             
             if finalTrains.isEmpty && !trainsArray.isEmpty {
                 
-                return .Failure
+                return .failure
             }
-            return .Success(finalTrains)
+            return .success(finalTrains)
         }
         catch _  {
-            return .Failure
+            return .failure
         }
         
     }
     
-    class func trainsFromJSON(json: [String: AnyObject]) -> Train? {
+    class func trainsFromJSON(_ json: [String: AnyObject]) -> Train? {
         
         guard let destinationStation  = json["stationName"] as? String,
-            direction = json["direction"] as? String,
-            expectedArrivalString = json["expectedArrival"] as? String,
-            lineID = json["lineId"] as? String,
-            timestampString = json["timestamp"] as? String,
-            trainID  = json["id"] as? String,
-            expectedArrival = dateFormatter2.dateFromString(expectedArrivalString),
-            timestamp = dateFormatter.dateFromString(timestampString)
+            let direction = json["direction"] as? String,
+            let expectedArrivalString = json["expectedArrival"] as? String,
+            let lineID = json["lineId"] as? String,
+            let timestampString = json["timestamp"] as? String,
+            let trainID  = json["id"] as? String,
+            let expectedArrival = dateFormatter2.date(from: expectedArrivalString),
+            let timestamp = dateFormatter.date(from: timestampString)
             else {
                 return nil
         }

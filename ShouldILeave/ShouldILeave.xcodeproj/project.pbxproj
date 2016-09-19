@@ -240,13 +240,16 @@
 					B3151CAB1D34132600BA1859 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 47NKLVK2JD;
+						LastSwiftMigration = 0800;
 					};
 					B3151CC21D34132600BA1859 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = B3151CAB1D34132600BA1859;
 					};
 					B3151CCD1D34132600BA1859 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = B3151CAB1D34132600BA1859;
 					};
 				};
@@ -461,6 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.medusa.ShouldILeave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -475,6 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.medusa.ShouldILeave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -486,6 +491,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.medusa.ShouldILeaveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShouldILeave.app/ShouldILeave";
 			};
 			name = Debug;
@@ -498,6 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.medusa.ShouldILeaveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShouldILeave.app/ShouldILeave";
 			};
 			name = Release;
@@ -509,6 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.medusa.ShouldILeaveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ShouldILeave;
 			};
 			name = Debug;
@@ -520,6 +528,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.medusa.ShouldILeaveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ShouldILeave;
 			};
 			name = Release;

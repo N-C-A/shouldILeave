@@ -12,21 +12,21 @@ import UIKit
 class SILRequest: NSObject {
     
     
-    class func sendRequest(url url: NSURL, completion: (NSData?) -> Void)  {
+    class func sendRequest(url: URL, completion: @escaping (Data?) -> Void)  {
         
-        let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         
-        var dataTask: NSURLSessionDataTask? = nil
+        var dataTask: URLSessionDataTask? = nil
         
         
         if dataTask != nil {
             dataTask?.cancel()
         }
         
-        dataTask = defaultSession.dataTaskWithURL(url) {
+        dataTask = defaultSession.dataTask(with: url, completionHandler: {
             (data, response, error) in
             completion(data)
-        }
+        }) 
         dataTask?.resume()
     }
     

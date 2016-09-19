@@ -14,23 +14,23 @@ class SILArrivalsContext:NSObject, UITableViewDataSource {
     
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "TrainCell"
         let cell =
-            tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
-        let train = trains[indexPath.row]
+            tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let train = trains[(indexPath as NSIndexPath).row]
         
         
-        let currentCalendar = NSCalendar.currentCalendar()
+        let currentCalendar = Calendar.current
 
-        let dateComponents = currentCalendar.components(.Minute, fromDate: train.timestamp, toDate: train.expectedArrival, options: NSCalendarOptions.WrapComponents)
+        let dateComponents = (currentCalendar as NSCalendar).components(.minute, from: train.timestamp, to: train.expectedArrival, options: NSCalendar.Options.wrapComponents)
         
         
         cell.textLabel?.text = "\(dateComponents.minute) mins"
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trains.count
     }
 }

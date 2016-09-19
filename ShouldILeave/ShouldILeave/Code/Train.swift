@@ -14,9 +14,9 @@ struct Train {
 
 var destinationStation: String
 var direction: String
-var expectedArrival: NSDate
+var expectedArrival: Date
 var lineID: String
-var timestamp: NSDate
+var timestamp: Date
 var trainID: String
 
 }
