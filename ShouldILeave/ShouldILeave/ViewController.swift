@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate {
 
+    
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.isLenient = true
+        formatter.dateFormat = "HH:mm:ss"
+        return formatter
+    }()
+    
     var datasource = SILArrivalsContext ()
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var lastRefreshed: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +29,11 @@ class ViewController: UIViewController, UITableViewDelegate {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TrainCell")
         tableView?.dataSource = datasource
         tableView?.delegate = self
+        loadData()
+    }
+    
+    
+    @IBAction func refreshData(_ sender: AnyObject) {
         loadData()
     }
     
@@ -39,6 +53,10 @@ class ViewController: UIViewController, UITableViewDelegate {
                     self.datasource.trains.removeAll()
                     print("")
                 }
+                
+                let now = Date.init()
+                let dateString = self.dateFormatter.string(from: now)
+                self.lastRefreshed.text = "Last refreshed \(dateString)"
                 self.tableView.reloadData()
             }
         }

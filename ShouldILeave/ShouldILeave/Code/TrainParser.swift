@@ -33,8 +33,9 @@ class TrainParser {
             return .failure
         }
         
+        
         do {
-            let jsonObject: AnyObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            let jsonObject: Any = try JSONSerialization.jsonObject(with: jsonData, options: [])
             
             guard let
                 trainsArray = jsonObject as? [[String:AnyObject]] else {
@@ -54,7 +55,10 @@ class TrainParser {
                 
                 return .failure
             }
-            return .success(finalTrains)
+            let sorted = finalTrains.sorted(by: { (train1, train2) -> Bool in
+                return train1.expectedArrival < train2.expectedArrival
+            })
+            return .success(sorted)
         }
         catch _  {
             return .failure

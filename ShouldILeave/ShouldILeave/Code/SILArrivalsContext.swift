@@ -26,7 +26,7 @@ class SILArrivalsContext:NSObject, UITableViewDataSource {
         let dateComponents = (currentCalendar as NSCalendar).components(.minute, from: train.timestamp, to: train.expectedArrival, options: NSCalendar.Options.wrapComponents)
         
         
-        cell.textLabel?.text = "\(dateComponents.minute) mins"
+        cell.textLabel?.text = "\(dateComponents.minute!) mins"
         return cell
     }
     
