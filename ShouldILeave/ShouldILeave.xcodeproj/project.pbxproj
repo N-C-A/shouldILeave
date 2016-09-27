@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B3151CB01D34132600BA1859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CAF1D34132600BA1859 /* AppDelegate.swift */; };
-		B3151CB21D34132600BA1859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CB11D34132600BA1859 /* ViewController.swift */; };
+		B3151CB21D34132600BA1859 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CB11D34132600BA1859 /* TrainViewController.swift */; };
 		B3151CB51D34132600BA1859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3151CB31D34132600BA1859 /* Main.storyboard */; };
 		B3151CBA1D34132600BA1859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3151CB91D34132600BA1859 /* Assets.xcassets */; };
 		B3151CBD1D34132600BA1859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3151CBB1D34132600BA1859 /* LaunchScreen.storyboard */; };
 		B3151CC81D34132600BA1859 /* ShouldILeaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CC71D34132600BA1859 /* ShouldILeaveTests.swift */; };
 		B3151CD31D34132600BA1859 /* ShouldILeaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CD21D34132600BA1859 /* ShouldILeaveUITests.swift */; };
-		B3858FE01D469586008FE25F /* SILArrivalsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3858FDF1D469586008FE25F /* SILArrivalsContext.swift */; };
+		B3858FE01D469586008FE25F /* TrainViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3858FDF1D469586008FE25F /* TrainViewControllerDataSource.swift */; };
 		B38B402B1D341E4D00166FD9 /* SILRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B402A1D341E4D00166FD9 /* SILRequest.swift */; };
 		B38B402C1D341E4D00166FD9 /* SILRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B402A1D341E4D00166FD9 /* SILRequest.swift */; };
 		B38B402D1D341E4D00166FD9 /* SILRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B402A1D341E4D00166FD9 /* SILRequest.swift */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		B3151CAC1D34132600BA1859 /* ShouldILeave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShouldILeave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3151CAF1D34132600BA1859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3151CB11D34132600BA1859 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3151CB11D34132600BA1859 /* TrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
 		B3151CB41D34132600BA1859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3151CB91D34132600BA1859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3151CBC1D34132600BA1859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		B3151CCE1D34132600BA1859 /* ShouldILeaveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShouldILeaveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3151CD21D34132600BA1859 /* ShouldILeaveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShouldILeaveUITests.swift; sourceTree = "<group>"; };
 		B3151CD41D34132600BA1859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3858FDF1D469586008FE25F /* SILArrivalsContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SILArrivalsContext.swift; sourceTree = "<group>"; };
+		B3858FDF1D469586008FE25F /* TrainViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainViewControllerDataSource.swift; sourceTree = "<group>"; };
 		B38B402A1D341E4D00166FD9 /* SILRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SILRequest.swift; sourceTree = "<group>"; };
 		B3E637D61D58FDD70068109A /* TrainParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainParser.swift; sourceTree = "<group>"; };
 		B3E637DA1D58FF800068109A /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			children = (
 				B38B40291D341E2000166FD9 /* Code */,
 				B3151CAF1D34132600BA1859 /* AppDelegate.swift */,
-				B3151CB11D34132600BA1859 /* ViewController.swift */,
+				B3151CB11D34132600BA1859 /* TrainViewController.swift */,
 				B3151CB31D34132600BA1859 /* Main.storyboard */,
 				B3151CB91D34132600BA1859 /* Assets.xcassets */,
 				B3151CBB1D34132600BA1859 /* LaunchScreen.storyboard */,
@@ -150,7 +150,7 @@
 				B3E637D81D58FE9E0068109A /* ManagedObjects */,
 				B3E637D31D58FD5C0068109A /* Controllers */,
 				B38B40281D341D9E00166FD9 /* Network */,
-				B3858FDF1D469586008FE25F /* SILArrivalsContext.swift */,
+				B3858FDF1D469586008FE25F /* TrainViewControllerDataSource.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -308,10 +308,10 @@
 			files = (
 				B38B402B1D341E4D00166FD9 /* SILRequest.swift in Sources */,
 				B3E637D71D58FDD70068109A /* TrainParser.swift in Sources */,
-				B3151CB21D34132600BA1859 /* ViewController.swift in Sources */,
+				B3151CB21D34132600BA1859 /* TrainViewController.swift in Sources */,
 				B3151CB01D34132600BA1859 /* AppDelegate.swift in Sources */,
 				B3E637DC1D58FF800068109A /* Train.swift in Sources */,
-				B3858FE01D469586008FE25F /* SILArrivalsContext.swift in Sources */,
+				B3858FE01D469586008FE25F /* TrainViewControllerDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

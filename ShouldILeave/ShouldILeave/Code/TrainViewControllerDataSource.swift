@@ -8,11 +8,9 @@
 
 import UIKit
 
-class SILArrivalsContext:NSObject, UITableViewDataSource {
+class TrainViewControllerDataSource:NSObject, UITableViewDataSource {
     
     var trains: [Train] = []
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "TrainCell"
@@ -24,7 +22,6 @@ class SILArrivalsContext:NSObject, UITableViewDataSource {
         let currentCalendar = Calendar.current
 
         let dateComponents = (currentCalendar as NSCalendar).components(.minute, from: train.timestamp, to: train.expectedArrival, options: NSCalendar.Options.wrapComponents)
-        
         
         cell.textLabel?.text = "\(dateComponents.minute!) mins"
         return cell
