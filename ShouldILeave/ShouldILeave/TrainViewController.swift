@@ -18,17 +18,28 @@ class TrainViewController: UIViewController, UITableViewDelegate {
         return formatter
     }()
     
-    var datasource = TrainViewControllerDataSource ()
+    var trainDataSource = TrainViewControllerDataSource()
+    var stationDataSource = StationPickerViewDataSource()
     
+    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var lastRefreshed: UILabel!
+    @IBOutlet weak var stationNutton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TrainCell")
-        tableView?.dataSource = datasource
+        tableView?.dataSource = trainDataSource
         tableView?.delegate = self
+        
+        populateStationDataSource()
+        
+        pickerView?.dataSource = stationDataSource
+        pickerView?.delegate = stationDataSource
+        
+        pickerView?.isHidden = true
+        
         let line = "central"
         let station = "940GZZLUBND"
         let direction = "inbound"
@@ -44,6 +55,16 @@ class TrainViewController: UIViewController, UITableViewDelegate {
         loadData(withLine: line, withStation: station, withDirection: direction)
     }
     
+    @IBAction func toggleStationPicker(_ sender: AnyObject) {
+        pickerView?.dataSource = stationDataSource
+        pickerView?.delegate = stationDataSource
+    
+        let hidden = pickerView?.isHidden
+        if let hidden = hidden {
+                pickerView?.isHidden = !hidden
+        }
+    }
+    
     func loadData(withLine line: String, withStation station: String, withDirection direction: String) {
         
         let urlString = String(format: "https://api.tfl.gov.uk/Line/%@/Arrivals/%@?direction=%@&app_id=3aee5ec5&app_key=6f62b916e190dfc33d248160d3cbbd0e", line, station, direction)
@@ -57,9 +78,9 @@ class TrainViewController: UIViewController, UITableViewDelegate {
                 switch trainsResults {
                 case let .success(trains):
                     print("\(trains)")
-                    self.datasource.trains = trains
+                    self.trainDataSource.trains = trains
                 case .failure():
-                    self.datasource.trains.removeAll()
+                    self.trainDataSource.trains.removeAll()
                     print("")
                 }
                 
@@ -70,7 +91,16 @@ class TrainViewController: UIViewController, UITableViewDelegate {
             }
         }
     }
-
+    
+    func populateStationDataSource() {
+        
+        let station1 = Station(ID: "940GZZLUBND", name: "Bond Street")
+        let station2 = Station(ID: "HUBEAL", name: "Ealing Broadway")
+        
+        stationDataSource.stations = [station1, station2]
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
