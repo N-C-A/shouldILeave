@@ -19,16 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Westbound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGS-X4-dv4">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Central" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8X-Ln-PB1">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last refreshed:00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyt-ql-x7T">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,32 +51,39 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableView>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQw-RS-WNE">
+                                <frame key="frameInset" minX="159" minY="40" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Central"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-7N-MEH">
+                                <frame key="frameInset" minX="235" minY="40" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Westbound"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="e8X-Ln-PB1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5oL-q9-Ta6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qGS-X4-dv4" secondAttribute="trailing" constant="39" id="B4w-Rs-Vka"/>
                             <constraint firstItem="Iyt-ql-x7T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EFa-9k-GtU"/>
                             <constraint firstItem="U0z-fe-AbM" firstAttribute="baseline" secondItem="Iyt-ql-x7T" secondAttribute="baseline" id="K1g-x5-CMO"/>
                             <constraint firstItem="Pe9-kG-HWT" firstAttribute="top" secondItem="U0z-fe-AbM" secondAttribute="bottom" constant="53" id="RbY-lF-KbU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uHy-xN-w3I" secondAttribute="bottom" id="Rro-7u-JdN"/>
-                            <constraint firstItem="qGS-X4-dv4" firstAttribute="top" secondItem="e8X-Ln-PB1" secondAttribute="top" id="VVU-ht-Ear"/>
                             <constraint firstItem="RPX-Xh-nNY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="VgC-7W-8Gn"/>
                             <constraint firstItem="uHy-xN-w3I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WqC-DO-3ph"/>
                             <constraint firstItem="RPX-Xh-nNY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="41" id="XVd-Ra-6L0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pe9-kG-HWT" secondAttribute="trailing" constant="30" id="bDK-SJ-t6u"/>
                             <constraint firstItem="uHy-xN-w3I" firstAttribute="top" secondItem="Pe9-kG-HWT" secondAttribute="bottom" constant="8" id="gLd-GB-rNi"/>
                             <constraint firstItem="U0z-fe-AbM" firstAttribute="top" secondItem="RPX-Xh-nNY" secondAttribute="top" constant="43" id="kJG-1V-5lP"/>
-                            <constraint firstItem="e8X-Ln-PB1" firstAttribute="baseline" secondItem="RPX-Xh-nNY" secondAttribute="baseline" id="rdf-0j-A9a"/>
                             <constraint firstItem="U0z-fe-AbM" firstAttribute="leading" secondItem="RPX-Xh-nNY" secondAttribute="leading" id="rez-cX-gnd"/>
-                            <constraint firstItem="qGS-X4-dv4" firstAttribute="baseline" secondItem="e8X-Ln-PB1" secondAttribute="baseline" id="rlm-rF-NLl"/>
                             <constraint firstItem="Pe9-kG-HWT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="14" id="sxe-Xy-qAY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="directionButton" destination="fa3-7N-MEH" id="ghM-Bi-1bT"/>
                         <outlet property="lastRefreshed" destination="Iyt-ql-x7T" id="Zhw-6t-HEg"/>
+                        <outlet property="lineButton" destination="QQw-RS-WNE" id="Mhp-W9-VEg"/>
                         <outlet property="pickerView" destination="uHy-xN-w3I" id="Kje-ec-mTk"/>
-                        <outlet property="stationNutton" destination="RPX-Xh-nNY" id="YaP-ka-hFZ"/>
+                        <outlet property="stationButton" destination="RPX-Xh-nNY" id="BAq-f8-T2s"/>
                         <outlet property="tableView" destination="Pe9-kG-HWT" id="gRl-j8-lYC"/>
                     </connections>
                 </viewController>

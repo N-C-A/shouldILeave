@@ -20,11 +20,16 @@ class TrainViewController: UIViewController, UITableViewDelegate {
     
     var trainDataSource = TrainViewControllerDataSource()
     var stationDataSource = StationPickerViewDataSource()
+    var selectedStation: String = "940GZZLUBND"
+    var selectedLine:String = "central"
+    var selectedDirection:String = "inbound"
     
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var lastRefreshed: UILabel!
-    @IBOutlet weak var stationNutton: UIButton!
+    @IBOutlet weak var stationButton: UIButton!
+    @IBOutlet weak var lineButton: UIButton!
+    @IBOutlet weak var directionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +45,14 @@ class TrainViewController: UIViewController, UITableViewDelegate {
         
         pickerView?.isHidden = true
         
-        let line = "central"
-        let station = "940GZZLUBND"
-        let direction = "inbound"
-        loadData(withLine: line, withStation: station, withDirection: direction)
+        
+        loadData()
     }
     
     
     @IBAction func refreshData(_ sender: AnyObject) {
         
-        let line = "central"
-        let station = "940GZZLUBND"
-        let direction = "inbound"
-        loadData(withLine: line, withStation: station, withDirection: direction)
+        loadData()
     }
     
     @IBAction func toggleStationPicker(_ sender: AnyObject) {
@@ -65,9 +65,9 @@ class TrainViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    func loadData(withLine line: String, withStation station: String, withDirection direction: String) {
+    func loadData() {
         
-        let urlString = String(format: "https://api.tfl.gov.uk/Line/%@/Arrivals/%@?direction=%@&app_id=3aee5ec5&app_key=6f62b916e190dfc33d248160d3cbbd0e", line, station, direction)
+        let urlString = String(format: "https://api.tfl.gov.uk/Line/%@/Arrivals/%@?direction=%@&app_id=3aee5ec5&app_key=6f62b916e190dfc33d248160d3cbbd0e", selectedLine, selectedStation, selectedDirection)
         
         let url = URL(string: urlString)
         
@@ -90,6 +90,16 @@ class TrainViewController: UIViewController, UITableViewDelegate {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func updateButtons(withLine line: Line, withStation station: Station, withDirection direction: Direction) {
+        selectedStation = station.ID
+        selectedDirection = direction.ID
+        selectedLine = line.ID
+        
+        directionButton.titleLabel?.text = direction.name
+        lineButton.titleLabel?.text = line.name
+        stationButton.titleLabel?.text = station.name
     }
     
     func populateStationDataSource() {

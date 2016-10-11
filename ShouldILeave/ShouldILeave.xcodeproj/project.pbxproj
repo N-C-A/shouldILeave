@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		816E2A191DA2E0D7007534A5 /* StationPIckerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816E2A181DA2E0D7007534A5 /* StationPIckerViewDataSource.swift */; };
+		8171B4941DAD65E5000844D5 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8171B4931DAD65E5000844D5 /* Line.swift */; };
+		8171B4961DAD6607000844D5 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8171B4951DAD6607000844D5 /* Direction.swift */; };
 		8174D2F61DA2E1B900A1D982 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174D2F51DA2E1B900A1D982 /* Station.swift */; };
 		B3151CB01D34132600BA1859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CAF1D34132600BA1859 /* AppDelegate.swift */; };
 		B3151CB21D34132600BA1859 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3151CB11D34132600BA1859 /* TrainViewController.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		816E2A181DA2E0D7007534A5 /* StationPIckerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationPIckerViewDataSource.swift; sourceTree = "<group>"; };
+		8171B4931DAD65E5000844D5 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		8171B4951DAD6607000844D5 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		8174D2F51DA2E1B900A1D982 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		B3151CAC1D34132600BA1859 /* ShouldILeave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShouldILeave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3151CAF1D34132600BA1859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			children = (
 				B3E637DA1D58FF800068109A /* Train.swift */,
 				8174D2F51DA2E1B900A1D982 /* Station.swift */,
+				8171B4931DAD65E5000844D5 /* Line.swift */,
+				8171B4951DAD6607000844D5 /* Direction.swift */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -323,9 +329,11 @@
 				B38B402B1D341E4D00166FD9 /* SILRequest.swift in Sources */,
 				B3E637D71D58FDD70068109A /* TrainParser.swift in Sources */,
 				8174D2F61DA2E1B900A1D982 /* Station.swift in Sources */,
+				8171B4961DAD6607000844D5 /* Direction.swift in Sources */,
 				B3151CB21D34132600BA1859 /* TrainViewController.swift in Sources */,
 				B3151CB01D34132600BA1859 /* AppDelegate.swift in Sources */,
 				816E2A191DA2E0D7007534A5 /* StationPIckerViewDataSource.swift in Sources */,
+				8171B4941DAD65E5000844D5 /* Line.swift in Sources */,
 				B3E637DC1D58FF800068109A /* Train.swift in Sources */,
 				B3858FE01D469586008FE25F /* TrainViewControllerDataSource.swift in Sources */,
 			);
