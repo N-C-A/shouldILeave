@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainViewController: UIViewController, UITableViewDelegate {
+class TrainViewController: UIViewController, UITableViewDelegate, StationPickerDelegate {
 
     
     let dateFormatter: DateFormatter = {
@@ -40,11 +40,9 @@ class TrainViewController: UIViewController, UITableViewDelegate {
         
         populateStationDataSource()
         
-        pickerView?.dataSource = stationDataSource
-        pickerView?.delegate = stationDataSource
+        stationDataSource.delegate = self
         
         pickerView?.isHidden = true
-        
         
         loadData()
     }
@@ -56,13 +54,16 @@ class TrainViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBAction func toggleStationPicker(_ sender: AnyObject) {
-        pickerView?.dataSource = stationDataSource
-        pickerView?.delegate = stationDataSource
-    
-        let hidden = pickerView?.isHidden
-        if let hidden = hidden {
-                pickerView?.isHidden = !hidden
+        
+        if let pickerView = pickerView {
+            
+            pickerView.dataSource = stationDataSource
+            pickerView.delegate = stationDataSource
+            
+            pickerView.isHidden = !pickerView.isHidden
+        
         }
+        
     }
     
     func loadData() {
@@ -92,16 +93,6 @@ class TrainViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    func updateButtons(withLine line: Line, withStation station: Station, withDirection direction: Direction) {
-        selectedStation = station.ID
-        selectedDirection = direction.ID
-        selectedLine = line.ID
-        
-        directionButton.titleLabel?.text = direction.name
-        lineButton.titleLabel?.text = line.name
-        stationButton.titleLabel?.text = station.name
-    }
-    
     func populateStationDataSource() {
         
         let station1 = Station(ID: "940GZZLUBND", name: "Bond Street")
@@ -116,8 +107,12 @@ class TrainViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: StationPickerDelegate
     
-    
+    func stationWasSelected(station: Station) {
+        selectedStation = station.ID
+        stationButton.setTitle(station.name, for: .normal)
+    }
 
 }
 

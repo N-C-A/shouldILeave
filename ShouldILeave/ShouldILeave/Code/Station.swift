@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Station {
+public struct Station {
     var ID: String
     var name: String
 }

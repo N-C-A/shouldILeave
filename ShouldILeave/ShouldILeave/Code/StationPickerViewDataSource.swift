@@ -8,8 +8,14 @@
 
 import UIKit
 
+public protocol StationPickerDelegate {
+    func stationWasSelected(station: Station)
+}
+
+
 class StationPickerViewDataSource:NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
     var stations: [Station] = []
+    var delegate: StationPickerDelegate?
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -25,4 +31,11 @@ class StationPickerViewDataSource:NSObject, UIPickerViewDataSource, UIPickerView
         return station.name
     }
     
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        let station = stations[row]
+        delegate?.stationWasSelected(station: station)
+        
+    }
 }
