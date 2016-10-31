@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Line {
+public struct Line {
     var ID: String
     var name: String
 }

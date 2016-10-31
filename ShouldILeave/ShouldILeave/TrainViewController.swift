@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainViewController: UIViewController, UITableViewDelegate, StationPickerDelegate {
+class TrainViewController: UIViewController, UITableViewDelegate, StationPickerDelegate, LinePickerDelegate {
 
     
     let dateFormatter: DateFormatter = {
@@ -20,6 +20,7 @@ class TrainViewController: UIViewController, UITableViewDelegate, StationPickerD
     
     var trainDataSource = TrainViewControllerDataSource()
     var stationDataSource = StationPickerViewDataSource()
+    let lineDataSource = LinePickerViewDataSource()
     var selectedStation: String = "940GZZLUBND"
     var selectedLine:String = "central"
     var selectedDirection:String = "inbound"
@@ -39,8 +40,9 @@ class TrainViewController: UIViewController, UITableViewDelegate, StationPickerD
         tableView?.delegate = self
         
         populateStationDataSource()
-        
+        populateLineDataSource()
         stationDataSource.delegate = self
+        lineDataSource.delegate = self
         
         pickerView?.isHidden = true
         
@@ -63,8 +65,20 @@ class TrainViewController: UIViewController, UITableViewDelegate, StationPickerD
             pickerView.isHidden = !pickerView.isHidden
         
         }
-        
     }
+    
+    @IBAction func toggleLinePicker(_ sender: UIButton) {
+        
+        if let pickerView = pickerView {
+            
+            pickerView.dataSource = lineDataSource
+            pickerView.delegate = lineDataSource
+            
+            pickerView.isHidden = !pickerView.isHidden
+            
+        }
+    }
+    
     
     func loadData() {
         
@@ -94,13 +108,20 @@ class TrainViewController: UIViewController, UITableViewDelegate, StationPickerD
     }
     
     func populateStationDataSource() {
-        
+        // TODO: turn this into a request
         let station1 = Station(ID: "940GZZLUBND", name: "Bond Street")
         let station2 = Station(ID: "HUBEAL", name: "Ealing Broadway")
         
         stationDataSource.stations = [station1, station2]
-        
     }
+    
+    func populateLineDataSource() {
+        // TODO: turn this into a request
+        let line = Line(ID: "central", name: "Central")
+        
+        lineDataSource.lines = [line]
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -112,6 +133,11 @@ class TrainViewController: UIViewController, UITableViewDelegate, StationPickerD
     func stationWasSelected(station: Station) {
         selectedStation = station.ID
         stationButton.setTitle(station.name, for: .normal)
+    }
+    
+    func lineWasSelected(line: Line) {
+        selectedLine = line.ID
+        lineButton.setTitle(line.name, for: .normal)
     }
 
 }
