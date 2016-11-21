@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810AFB201DE37FE000ADFA5E /* StationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFB1F1DE37FE000ADFA5E /* StationParser.swift */; };
 		814DF2B01DC7D5EE00FCB829 /* LinePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DF2AF1DC7D5EE00FCB829 /* LinePickerViewDataSource.swift */; };
 		816E2A191DA2E0D7007534A5 /* StationPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816E2A181DA2E0D7007534A5 /* StationPickerViewDataSource.swift */; };
 		8171B4941DAD65E5000844D5 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8171B4931DAD65E5000844D5 /* Line.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810AFB1F1DE37FE000ADFA5E /* StationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationParser.swift; sourceTree = "<group>"; };
 		814DF2AF1DC7D5EE00FCB829 /* LinePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinePickerViewDataSource.swift; sourceTree = "<group>"; };
 		816E2A181DA2E0D7007534A5 /* StationPickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationPickerViewDataSource.swift; sourceTree = "<group>"; };
 		8171B4931DAD65E5000844D5 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B3E637D61D58FDD70068109A /* TrainParser.swift */,
+				810AFB1F1DE37FE000ADFA5E /* StationParser.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				8174D2F61DA2E1B900A1D982 /* Station.swift in Sources */,
 				8171B4961DAD6607000844D5 /* Direction.swift in Sources */,
 				814DF2B01DC7D5EE00FCB829 /* LinePickerViewDataSource.swift in Sources */,
+				810AFB201DE37FE000ADFA5E /* StationParser.swift in Sources */,
 				B3151CB21D34132600BA1859 /* TrainViewController.swift in Sources */,
 				B3151CB01D34132600BA1859 /* AppDelegate.swift in Sources */,
 				816E2A191DA2E0D7007534A5 /* StationPickerViewDataSource.swift in Sources */,
